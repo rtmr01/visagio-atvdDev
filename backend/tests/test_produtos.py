@@ -5,7 +5,7 @@ import uuid
 client = TestClient(app)
 
 def test_get_produtos():
-    response = client.get("/api/produtos")
+    response = client.get("/produtos")
     assert response.status_code == 200
     data = response.json()
     assert "data" in data
@@ -21,7 +21,7 @@ def test_create_produto():
         "altura_centimetros": 10,
         "largura_centimetros": 20
     }
-    response = client.post("/api/produtos", json=new_product)
+    response = client.post("/produtos", json=new_product)
     assert response.status_code == 201
     data = response.json()
     assert data["nome_produto"] == new_product["nome_produto"]
@@ -29,5 +29,5 @@ def test_create_produto():
 
 def test_get_produto_nao_existente():
     fake_id = uuid.uuid4().hex
-    response = client.get(f"/api/produtos/{fake_id}")
+    response = client.get(f"/produtos/{fake_id}")
     assert response.status_code == 404
