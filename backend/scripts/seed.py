@@ -16,7 +16,7 @@ from app.models.item_pedido import ItemPedido
 from app.models.avaliacao_pedido import AvaliacaoPedido
 
 def load_data():
-    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../banco"))
+    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../csv-base"))
     
     print("Iniciando a carga de dados...")
     
